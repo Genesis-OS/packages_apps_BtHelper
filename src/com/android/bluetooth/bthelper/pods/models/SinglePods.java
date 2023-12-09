@@ -11,53 +11,52 @@ import com.android.bluetooth.bthelper.pods.Pod;
 
 public abstract class SinglePods implements IPods {
 
-    public abstract int getDrawable ();
+  public abstract int getDrawable();
 
-    private final Pod pod;
-    private final String color;
+  private final Pod pod;
+  private final String color;
 
-    public SinglePods (String color, Pod pod) {
-        this.pod = pod;
-        this.color = color;
-    }
+  public SinglePods(String color, Pod pod) {
+    this.pod = pod;
+    this.color = color;
+  }
 
-    public Pod getPod () {
-        return pod;
-    }
+  public Pod getPod() {
+    return pod;
+  }
 
-    public int getParsedStatus () {
-        return pod.parseStatus();
-    }
+  public int getParsedStatus() {
+    return pod.parseStatus();
+  }
 
-    public String getColor () {
-        return color;
-    }
+  public String getColor() {
+    return color;
+  }
 
-    @Override
-    public boolean isSingle () {
-        return true;
-    }
+  @Override
+  public boolean isSingle() {
+    return true;
+  }
 
-    @Override
-    public boolean isDisconnected () {
-        return pod.isDisconnected();
-    }
+  @Override
+  public boolean isDisconnected() {
+    return pod.isDisconnected();
+  }
 
-    public int getLowBattThreshold () {
-        // Most AirPods have same Low Battery Threshold to 20
-        return 20;
-    }
+  public int getLowBattThreshold() {
+    // Most AirPods have same Low Battery Threshold to 20
+    return 20;
+  }
 
-    public String getMenufacturer () {
-        return Constants.UNKNOWN;
-    }
+  public String getMenufacturer() {
+    return Constants.UNKNOWN;
+  }
 
-    public boolean isInEar () {
-        return pod.isInEar();
-    }
+  public boolean isInEar() {
+    return pod.isInEar();
+  }
 
-    public boolean isCharging () {
-        return pod.isCharging();
-    }
-
+  public boolean isCharging() {
+    return pod.isCharging();
+  }
 }

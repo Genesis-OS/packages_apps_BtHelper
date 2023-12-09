@@ -11,76 +11,75 @@ import com.android.bluetooth.bthelper.pods.Pod;
 
 public class RegularPods implements IPods {
 
-    public static final int LEFT = 0, RIGHT = 1, CASE = 2;
+  public static final int LEFT = 0, RIGHT = 1, CASE = 2;
 
-    private final Pod[] pods;
-    private final String color;
+  private final Pod[] pods;
+  private final String color;
 
-    public RegularPods (String color, Pod leftPod, Pod rightPod, Pod casePod) {
-        this.pods = new Pod[] {leftPod, rightPod, casePod};
-        this.color = color;
-    }
+  public RegularPods(String color, Pod leftPod, Pod rightPod, Pod casePod) {
+    this.pods = new Pod[] {leftPod, rightPod, casePod};
+    this.color = color;
+  }
 
-    public Pod getPod (int pos) {
-        return pods[pos];
-    }
+  public Pod getPod(int pos) {
+    return pods[pos];
+  }
 
-    public int getParsedStatus (int pos) {
-        return pods[pos].parseStatus();
-    }
+  public int getParsedStatus(int pos) {
+    return pods[pos].parseStatus();
+  }
 
-    public String getColor () {
-        return color;
-    }
+  public String getColor() {
+    return color;
+  }
 
-    public int getDrawable () {
-        return -1;
-    }
+  public int getDrawable() {
+    return -1;
+  }
 
-    public int getLeftDrawable () {
-        return -1;
-    }
+  public int getLeftDrawable() {
+    return -1;
+  }
 
-    public int getRightDrawable () {
-        return -1;
-    }
+  public int getRightDrawable() {
+    return -1;
+  }
 
-    public int getCaseDrawable () {
-        return -1;
-    }
+  public int getCaseDrawable() {
+    return -1;
+  }
 
-    @Override
-    public String getModel () {
-        return Constants.UNKNOWN;
-    }
+  @Override
+  public String getModel() {
+    return Constants.UNKNOWN;
+  }
 
-    @Override
-    public boolean isSingle () {
-        return false;
-    }
+  @Override
+  public boolean isSingle() {
+    return false;
+  }
 
-    @Override
-    public boolean isDisconnected () {
-        return pods[LEFT].isDisconnected() &&
-                pods[RIGHT].isDisconnected() &&
-                pods[CASE].isDisconnected();
-    }
+  @Override
+  public boolean isDisconnected() {
+    return pods[LEFT].isDisconnected()
+        && pods[RIGHT].isDisconnected()
+        && pods[CASE].isDisconnected();
+  }
 
-    public int getLowBattThreshold () {
-        // Most AirPods have same Low Battery Threshold to 20
-        return 20;
-    }
+  public int getLowBattThreshold() {
+    // Most AirPods have same Low Battery Threshold to 20
+    return 20;
+  }
 
-    public String getMenufacturer () {
-        return Constants.UNKNOWN;
-    }
+  public String getMenufacturer() {
+    return Constants.UNKNOWN;
+  }
 
-    public boolean isInEar (int pos) {
-        return pods[pos].isInEar();
-    }
+  public boolean isInEar(int pos) {
+    return pods[pos].isInEar();
+  }
 
-    public boolean isCharging (int pos) {
-        return pods[pos].isCharging();
-    }
-
+  public boolean isCharging(int pos) {
+    return pods[pos].isCharging();
+  }
 }
